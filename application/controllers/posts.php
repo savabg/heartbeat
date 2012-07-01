@@ -8,7 +8,7 @@ class Posts_Controller extends Controller {
 	 * @var string
 	 */
 	public $layout = 'layouts.scaffold';
-
+     //more help
 	/**
 	 * Indicates if the controller uses RESTful routing.
 	 *
