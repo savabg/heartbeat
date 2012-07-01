@@ -13,7 +13,7 @@
 */
 
 ini_set('display_errors', 'On');
-//test
+
 /*
 |--------------------------------------------------------------------------
 | Laravel Configuration Loader
