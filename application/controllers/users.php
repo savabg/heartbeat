@@ -5,7 +5,7 @@ class Users_Controller extends Base_Controller {
 
     public function __construct() {
         $this->filter('before', 'auth');
-
+            //help
     }
 
 	public function action_index()
