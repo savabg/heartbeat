@@ -34,9 +34,22 @@
 */
 
 return array(
-	'bob',
+    'version' => array(
+        'auto' => true,
+        'autoloads' => array(
+            'map' => array(
+                'Version' => '(:bundle)/Version.php',
+            ),
+        ),
+    ),
+    'bob',
 	'docs' => array('handles' => 'docs'),
 	'sentry' => array('auto' => true),
 	'scaffold',
+    'bootstrapper' => array('auto' => true),
+    'rejigger' => array(
+        'auto' => true,
+        'handles' => 'rejigger',
+    ),
 
 );
