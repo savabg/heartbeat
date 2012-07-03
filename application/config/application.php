@@ -201,5 +201,4 @@ return array(
         'Typeahead'     => 'Bootstrapper\\Typeahead',
         'Buttons'       => 'Bootstrapper\\Buttons',
 	),
-
 );

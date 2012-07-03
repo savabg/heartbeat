@@ -92,6 +92,8 @@ class Projects_Controller extends Controller {
 	 */
 	public function get_view($id)
 	{
+
+
         Session::put('project_id', $id);
 		$project = Project::find($id);
         $urs = $project->urs();
@@ -104,6 +106,37 @@ class Projects_Controller extends Controller {
 		$this->layout->title   = 'Viewing Project #'.$id;
 		$this->layout->content = View::make('projects.view')->with('project', $project);
 	}
+
+    public function get_templates()
+    {
+
+        $TBS = new TBS\clsTinyButStrong; // new instance of TBS
+        $TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load OpenTBS plugin
+        $data = array();
+        $data[] = array('firstname'=>'Sandra' , 'name'=>'Hill'      , 'number'=>'1523d', 'score'=>200, 'email_1'=>'sh@tbs.com',  'email_2'=>'sandra@tbs.com',  'email_3'=>'s.hill@tbs.com');
+        $data[] = array('firstname'=>'Roger'  , 'name'=>'Smith'     , 'number'=>'1234f', 'score'=>800, 'email_1'=>'rs@tbs.com',  'email_2'=>'robert@tbs.com',  'email_3'=>'r.smith@tbs.com' );
+        $data[] = array('firstname'=>'William', 'name'=>'Mac Dowell', 'number'=>'5491y', 'score'=>130, 'email_1'=>'wmc@tbs.com', 'email_2'=>'william@tbs.com', 'email_3'=>'w.m.dowell@tbs.com' );
+
+        $location = path('public').'other/demo_ms_word.docx';
+        $template = $location;
+        $x = pathinfo(basename($template));
+        $template_ext = $x['extension'];
+
+        $TBS->LoadTemplate($template);
+        $TBS->MergeBlock('a,b', $data);
+        $field = 'yourname';
+        $TBS->VarRef[$field] = 'value';
+       // global $x_delete, $yourname;
+        $x_delete = 1;
+        $yourname = 2;
+
+        $file_name = str_replace('.','_'.date('Y-m-d').'.',$template);
+        $file_name = str_replace('.','_'.'docx'.'.',$file_name);
+        $TBS->Show(OPENTBS_DOWNLOAD, $file_name);
+        //Response::download($TBS->Show(OPENTBS_FILE+TBS_EXIT, $file_name));
+        $this->layout->title   = '';
+        $this->layout->content = View::make('projects.create');
+    }
     public function get_template($id)
     {
         $project = Project::find($id);

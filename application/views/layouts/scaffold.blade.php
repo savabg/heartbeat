@@ -3,14 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<title>{{$title}}</title>
-	<link rel="stylesheet" type="text/css" href="{{asset('bundles/scaffold/css/bootstrap.css')}}">
-	<style>
-		body { margin: 40px; }
-	</style>
+
     {{Asset::container('bootstrapper')->styles()}}
     {{Asset::container('bootstrapper')->scripts()}}
+    <link rel="stylesheet" type="text/css" href="{{asset('bundles/scaffold/css/bootstrap.css')}}">
 </head>
 <body>
+    {{Config::get('navigation.top')}}
 	<div class="container">
 		<div class="row">
 			<div class="span16">
