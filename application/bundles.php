@@ -51,5 +51,12 @@ return array(
         'auto' => true,
         'handles' => 'rejigger',
     ),
+    'dbutil' => array(
+        'autoloads' => array(
+            'map' => array(
+                'DBUtil' => '(:bundle)/dbutil.php',
+            ),
+        ),
+    ),
 
 );
